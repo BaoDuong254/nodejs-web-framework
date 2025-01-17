@@ -6,6 +6,14 @@
     "NodeJS",
     "ExpressJS"
   ],
+  "homepage": "https://github.com/BaoDuong254/nodejs-web-framework#readme",
+  "bugs": {
+    "url": "https://github.com/BaoDuong254/nodejs-web-framework/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BaoDuong254/nodejs-web-framework.git"
+  },
   "license": "ISC",
   "author": "BaoDuong254 <duonggiabao254@gmail.com>",
   "type": "commonjs",
