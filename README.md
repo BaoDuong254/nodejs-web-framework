@@ -26,4 +26,8 @@ The server will run on `http://localhost:3000`
 
 - Completed `App` class and basic router.
 - Successfully hosted the server.
-  
+
+### Week 2
+
+- Implement `Middleware` function.
+- Implement Static File Serving.
