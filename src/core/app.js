@@ -5,10 +5,18 @@ class App {
 	constructor() {
 		this.router = new Router();
 		this.middlewares = [];
+		this.errorHandler = (err, req, res) => {
+			res.statusCode = err.status || 500;
+			res.end(err.message || "Internal Server Error");
+		};
 	}
 
 	use(middleware) {
 		this.middlewares.push(middleware);
+	}
+
+	setErrorHandler(handler) {
+		this.errorHandler = handler;
 	}
 
 	get(path, handler) {
@@ -22,11 +30,20 @@ class App {
 	listen(port, callback) {
 		const server = http.createServer((req, res) => {
 			let i = 0;
-			const next = () => {
+			const next = (err) => {
+				if (err) return this.errorHandler(err, req, res);
 				if (i < this.middlewares.length) {
-					return this.middlewares[i++](req, res, next);
+					try {
+						return this.middlewares[i++](req, res, next);
+					} catch (error) {
+						return this.errorHandler(error, req, res);
+					}
 				}
-				this.router.handle(req, res);
+				try {
+					this.router.handle(req, res, next);
+				} catch (error) {
+					this.errorHandler(error, req, res);
+				}
 			};
 			next();
 		});

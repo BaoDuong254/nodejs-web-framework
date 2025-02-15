@@ -31,3 +31,11 @@ The server will run on `http://localhost:3000`
 
 - Implement `Middleware` function.
 - Implement Static File Serving.
+
+### Week 3
+
+- Refactor `request` parsing.
+- Set up static file serving.
+- Get the data when submit the form.
+- Use Postman to test.
+- Configured error handling.

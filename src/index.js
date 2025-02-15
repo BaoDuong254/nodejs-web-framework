@@ -1,20 +1,31 @@
-const App = require("./core/app");
-const middleware = require("./core/middleware");
-const serveStatic = require("./core/static");
 const path = require("path");
-
+const App = require("./core/app");
+const parser = require("./core/parser");
+const serveStatic = require("./core/static");
 const app = new App();
 
-app.use(middleware);
+app.setErrorHandler((err, req, res) => {
+	res.statusCode = err.status || 500;
+	res.end(JSON.stringify({ error: err.message || "Internal Server Error" }));
+});
+
+app.use(parser);
 
 app.use(serveStatic(path.join(__dirname, "..", "public")));
 
-app.get("/", (req, res) => {
-	res.end("Hello World");
+app.get("/error", (req, res) => {
+    const error = new Error("An error occurred");
+    error.status = 404;
+    throw error;
+});
+
+app.get("/News", (req, res) => {
+	res.end("News page");
 });
 
 app.post("/data", (req, res) => {
-	res.json({ received: req.body });
+	console.log(req.body);
+	res.json(req.body);
 });
 
 app.listen(3000, () => {
