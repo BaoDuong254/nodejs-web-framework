@@ -2,6 +2,7 @@ const path = require("path");
 const App = require("./core/app");
 const parser = require("./core/parser");
 const serveStatic = require("./core/static");
+const getQueryParams = require("./core/queryParams");
 const app = new App();
 
 app.setErrorHandler((err, req, res) => {
@@ -14,13 +15,19 @@ app.use(parser);
 app.use(serveStatic(path.join(__dirname, "..", "public")));
 
 app.get("/error", (req, res) => {
-    const error = new Error("An error occurred");
-    error.status = 404;
-    throw error;
+	const error = new Error("An error occurred");
+	error.status = 404;
+	throw error;
 });
 
-app.get("/News", (req, res) => {
-	res.end("News page");
+app.get("/query", (req, res) => {
+    if (String(req.url).includes("?")) {
+        const queryParams = getQueryParams(req.url);
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.end(JSON.stringify(queryParams));
+    } else {
+        res.end("No query parameters");
+    }
 });
 
 app.post("/data", (req, res) => {
