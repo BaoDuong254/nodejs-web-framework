@@ -40,3 +40,10 @@ The server will run on `http://localhost:3000`
 - Use Postman to test.
 - Configured error handling.
 - Implement query params.
+
+### API Routes
+
+| Method | Route        | Description               |
+|--------|-------------|---------------------------|
+| GET    | `/error`         | Returns a JSON response error      |
+| GET    | `/query?name=John`    | Returns a JSON response with a query params   |
