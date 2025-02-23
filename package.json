@@ -22,7 +22,6 @@
     "start": "nodemon src/index.js"
   },
   "dependencies": {
-    "express": "^4.21.2",
     "http": "^0.0.1-security",
     "mime": "^4.0.6",
     "querystring": "^0.2.1",
