@@ -1,8 +1,8 @@
 const path = require("path");
-const App = require("./app");
-const parser = require("./middleware/parser");
-const serveStatic = require("./static/static");
-const getQueryParams = require("./middleware/queryParams");
+const App = require("./src/app");
+const parser = require("./src/middleware/parser");
+const serveStatic = require("./src/static/static");
+const getQueryParams = require("./src/middleware/queryParams");
 const app = new App();
 
 app.setErrorHandler((err, req, res) => {
@@ -12,7 +12,7 @@ app.setErrorHandler((err, req, res) => {
 
 app.use(parser);
 
-app.use(serveStatic(path.join(__dirname, "..", "public")));
+app.use(serveStatic(path.join(__dirname, "public")));
 
 app.get("/error", (req, res) => {
 	const error = new Error("An error occurred");

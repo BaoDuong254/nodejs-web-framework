@@ -41,7 +41,6 @@ The server will run on `http://localhost:3000`
         └── index.html
     └── 📁src
         └── app.js
-        └── index.js
         └── 📁middleware
             └── parser.js
             └── queryParams.js
@@ -52,6 +51,7 @@ The server will run on `http://localhost:3000`
         └── 📁static
             └── static.js
     └── .gitignore
+    └── index.js
     └── package-lock.json
     └── package.json
     └── README.md
