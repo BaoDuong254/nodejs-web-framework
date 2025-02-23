@@ -140,3 +140,6 @@ dist
 
 # Code workspace
 .code-workspace
+
+# .idea files
+/.idea/

@@ -14,7 +14,7 @@ app.use(parser);
 
 app.use(serveStatic(path.join(__dirname, "public")));
 
-app.get("/error", (req, res) => {
+app.get("/error", () => {
 	const error = new Error("An error occurred");
 	error.status = 404;
 	throw error;

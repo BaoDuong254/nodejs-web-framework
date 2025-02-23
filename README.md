@@ -1,4 +1,4 @@
-# NodeJS web framework
+# Node.js web framework
 
 Building a lightweight Node.js web framework like Express.
 
@@ -80,7 +80,7 @@ The server will run on `http://localhost:3000`
 
 ## API Routes
 
-| Method | Route        | Description               |
-|--------|-------------|---------------------------|
-| GET    | `/error`         | Returns a JSON response error      |
-| GET    | `/query?name=John`    | Returns a JSON response with a query params   |
+| Method | Route              | Description                                 |
+|--------|--------------------|---------------------------------------------|
+| GET    | `/error`           | Returns a JSON response error               |
+| GET    | `/query?name=John` | Returns a JSON response with a query params |

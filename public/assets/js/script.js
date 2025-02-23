@@ -6,7 +6,7 @@ document.getElementById("myForm").addEventListener("submit", function (event) {
 		body: new URLSearchParams(formData),
 	})
 		.then((response) => response.json())
-		.then((data) => {
+		.then(() => {
 			alert("Submit success");
 			window.location.href = "/";
 		})
