@@ -1,5 +1,5 @@
 const http = require("http");
-const Router = require("./router");
+const Router = require("./routes/router");
 
 class App {
 	constructor() {

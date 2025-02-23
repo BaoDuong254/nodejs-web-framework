@@ -22,7 +22,7 @@ The server will run on `http://localhost:3000`
 
 ## Project Structure
 
-``` bash
+```bash
 └── 📁NodeJS web framework
     └── 📁public
         └── 📁assets
@@ -40,15 +40,17 @@ The server will run on `http://localhost:3000`
                 └── script.js
         └── index.html
     └── 📁src
-        └── 📁core
-            └── app.js
+        └── app.js
+        └── index.js
+        └── 📁middleware
             └── parser.js
             └── queryParams.js
             └── request.js
             └── response.js
+        └── 📁routes
             └── router.js
+        └── 📁static
             └── static.js
-        └── index.js
     └── .gitignore
     └── package-lock.json
     └── package.json

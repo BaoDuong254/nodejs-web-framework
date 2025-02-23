@@ -1,8 +1,8 @@
 const path = require("path");
-const App = require("./core/app");
-const parser = require("./core/parser");
-const serveStatic = require("./core/static");
-const getQueryParams = require("./core/queryParams");
+const App = require("./app");
+const parser = require("./middleware/parser");
+const serveStatic = require("./static/static");
+const getQueryParams = require("./middleware/queryParams");
 const app = new App();
 
 app.setErrorHandler((err, req, res) => {
@@ -21,13 +21,13 @@ app.get("/error", (req, res) => {
 });
 
 app.get("/query", (req, res) => {
-    if (String(req.url).includes("?")) {
-        const queryParams = getQueryParams(req.url);
-        res.writeHead(200, { "Content-Type": "application/json" });
-        res.end(JSON.stringify(queryParams));
-    } else {
-        res.end("No query parameters");
-    }
+	if (String(req.url).includes("?")) {
+		const queryParams = getQueryParams(req.url);
+		res.writeHead(200, { "Content-Type": "application/json" });
+		res.end(JSON.stringify(queryParams));
+	} else {
+		res.end("No query parameters");
+	}
 });
 
 app.post("/data", (req, res) => {
