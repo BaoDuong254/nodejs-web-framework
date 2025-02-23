@@ -20,6 +20,41 @@ npm start
 
 The server will run on `http://localhost:3000`
 
+## Project Structure
+
+``` bash
+└── 📁NodeJS web framework
+    └── 📁public
+        └── 📁assets
+            └── 📁css
+                └── style.css
+            └── 📁favicon
+                └── android-chrome-192x192.png
+                └── android-chrome-512x512.png
+                └── apple-touch-icon.png
+                └── favicon-16x16.png
+                └── favicon-32x32.png
+                └── favicon.ico
+                └── site.webmanifest
+            └── 📁js
+                └── script.js
+        └── index.html
+    └── 📁src
+        └── 📁core
+            └── app.js
+            └── parser.js
+            └── queryParams.js
+            └── request.js
+            └── response.js
+            └── router.js
+            └── static.js
+        └── index.js
+    └── .gitignore
+    └── package-lock.json
+    └── package.json
+    └── README.md
+```
+
 ## Report
 
 ### Week 1
@@ -41,7 +76,7 @@ The server will run on `http://localhost:3000`
 - Configured error handling.
 - Implement query params.
 
-### API Routes
+## API Routes
 
 | Method | Route        | Description               |
 |--------|-------------|---------------------------|
