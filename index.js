@@ -12,7 +12,7 @@ app.setErrorHandler((err, req, res) => {
 
 app.use(parser);
 
-app.use(serveStatic(path.join(__dirname, "public")));
+app.use(serveStatic("public"));
 
 app.get("/error", () => {
 	const error = new Error("An error occurred");
